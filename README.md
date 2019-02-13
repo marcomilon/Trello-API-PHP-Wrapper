@@ -37,7 +37,7 @@ Get a board
 $board = $client->getBoard($board_id);
 ```
 
-Another way to get a board (or any object)
+Another way to get a board (or any Element)
 ```php
 $board = new \Trello\Model\Board($client);
 $board->setId($board_id);
@@ -60,7 +60,7 @@ $card->name = 'some new name';
 $card->save();
 ```
 
-Create a new card (or any object)
+Create a new card (or any Element)
 ```php
 $card = new \Trello\Model\Card($client);
 $card->name = 'some card name';

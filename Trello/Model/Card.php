@@ -2,7 +2,7 @@
 
 namespace Trello\Model;
 
-class Card extends Object {
+class Card extends Element {
 
     protected $_model = 'cards';
 
@@ -27,7 +27,7 @@ class Card extends Object {
         Valid Values: id of the list that the card should be added to
 
         idMembers (optional)
-        Valid Values: A comma-separated list of objectIds, 24-character hex strings
+        Valid Values: A comma-separated list of ElementIds, 24-character hex strings
 
         idCardSource (optional)
         Valid Values: The id of the card to copy into a new card.
@@ -35,7 +35,7 @@ class Card extends Object {
         keepFromSource (optional)
         Default: all
         Valid Values: Properties of the card to copy over from the source.
-     * @see \Trello\Model\Object::save()
+     * @see \Trello\Model\Element::save()
      */
     public function save(){
 

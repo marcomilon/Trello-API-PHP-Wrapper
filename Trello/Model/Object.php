@@ -2,7 +2,7 @@
     
 namespace Trello\Model;
 
-abstract class Object implements \ArrayAccess, \Countable, \Iterator{
+abstract class Element implements \ArrayAccess, \Countable, \Iterator{
 
     protected $_client;
     protected $_model;
@@ -18,9 +18,9 @@ abstract class Object implements \ArrayAccess, \Countable, \Iterator{
     }
 
     /**
-     * Save an object
+     * Save an Element
      *
-     * @return \Trello\Model\Object
+     * @return \Trello\Model\Element
      */
     public function save(){
 
@@ -39,7 +39,7 @@ abstract class Object implements \ArrayAccess, \Countable, \Iterator{
     public function update(){
 
         if (!$this->getId()){
-            throw new \InvalidArgumentException('There is no ID set for this object - Please call setId before calling update');
+            throw new \InvalidArgumentException('There is no ID set for this Element - Please call setId before calling update');
         }
 
         $response = $this->getClient()->put($this->getModel() . '/' . $this->getId(), $this->toArray());
@@ -54,12 +54,12 @@ abstract class Object implements \ArrayAccess, \Countable, \Iterator{
      * Get an item by id ($this->id)
      *
      * @throws \InvalidArgumentException
-     * @return \Trello\Model\Object
+     * @return \Trello\Model\Element
      */
     public function get(){
 
         if (!$this->getId()){
-            throw new \InvalidArgumentException('There is no ID set for this object - Please call setId before calling get');
+            throw new \InvalidArgumentException('There is no ID set for this Element - Please call setId before calling get');
         }
 
         $child = get_class($this);
